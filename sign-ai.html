@@ -1,0 +1,202 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign AI · Cathy Xu</title>
+<meta name="description" content="A public-service AI assistant for citizens that answers only from a checked source, plus a dashboard for knowledge base management.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cathy Xu">
+<meta property="og:title" content="Sign AI · Cathy Xu">
+<meta property="og:description" content="A public-service AI assistant for citizens that answers only from a checked source, plus a dashboard for knowledge base management.">
+<meta property="og:url" content="https://cathyxu.design/sign-ai.html">
+<meta property="og:image" content="https://cathyxu.design/og/sign-ai.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cathyxu.design/og/sign-ai.jpg">
+<link rel="canonical" href="https://cathyxu.design/sign-ai.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0A0A0B;--fg:rgba(255,255,255,.84);--fg2:rgba(255,255,255,.66);--fg3:rgba(255,255,255,.46);--hair:rgba(255,255,255,.12);--ink:#fff;--tile:#141518}
+*{box-sizing:border-box}html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto;object-fit:contain}
+.top{position:sticky;top:0;z-index:10;background:rgba(10,10,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+.top .in{max-width:1520px;margin:0 auto;padding:0 max(24px,env(safe-area-inset-left,0px));height:60px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--fg3)}
+.top a:hover{color:var(--ink)}.top b{color:var(--ink);font-weight:500}
+.top .in{justify-content:space-between}
+.crumb{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap;color:var(--fg3)}.crumb .sep{color:var(--fg3)}
+.pick{position:relative;min-width:0}
+.pick summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;color:#fff;font-weight:500;padding:6px 10px;margin:-6px -10px;border-radius:8px}
+.pick summary::-webkit-details-marker{display:none}.pick summary:hover,.pick[open] summary{background:rgba(255,255,255,.08)}
+.pick summary:focus-visible{outline:2px solid #fff;outline-offset:2px}.pick summary .pt{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pick summary i{flex:none;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.pick[open] summary i{transform:translateY(1px) rotate(225deg)}
+.pick ul{position:absolute;left:-10px;top:calc(100% + 10px);min-width:240px;list-style:none;margin:0;padding:6px;background:#17181C;border:1px solid var(--hair);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);z-index:20}
+.pick li a{display:block;padding:9px 12px;border-radius:8px;color:var(--fg);font-size:14px}.pick li a:hover{background:rgba(255,255,255,.07);color:#fff}
+.pick li a[aria-current]{color:#fff;font-weight:500}.pick li a[aria-current]::after{content:"✓";float:right;color:var(--fg3)}
+.toggle{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:2px;gap:2px;flex:none}
+.toggle button{font:inherit;font-size:12.5px;font-weight:500;border:0;background:none;color:var(--fg3);padding:6px 13px;border-radius:999px;cursor:pointer}
+.toggle button.on{background:#fff;color:#0A0A0B}.toggle button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.metar{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;margin:0 0 72px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.metar div{padding:18px 20px 18px 0}.metar div+div{padding-left:20px;border-left:1px solid var(--hair)}
+.metar dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 6px}.metar dd{margin:0;color:var(--fg);font-size:15px;line-height:1.45}
+@media (max-width:760px){.metar{grid-auto-flow:row;grid-template-columns:1fr 1fr}.metar div:nth-child(3){padding-left:0;border-left:0}.metar div:nth-child(n+3){border-top:1px solid var(--hair)}}
+body.tldr article li.k{list-style:disc}
+.tl{display:none}.tldr-only{display:none}
+body.tldr .tldr-only{display:block}body.tldr .full{display:none}body.tldr .tl{display:block}
+.ins{margin:-40px 0 64px;padding:0}
+.ins div{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:32px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.ins dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.ins dd{margin:0;color:var(--ink);font-size:17px;line-height:1.5;max-width:none}.ins ul{margin:0;padding-left:18px}.ins li{margin:2px 0}
+body.tldr article section{padding:44px 0}
+body.tldr article h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:18px}
+
+body.tldr article .hd{display:none}
+.tr2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:64px;align-items:start}
+.tr2.hdonly{grid-template-columns:1fr;margin-bottom:8px}.tr2.one{grid-template-columns:minmax(0,1fr);max-width:none}
+.tr2 h2{margin:0 0 20px}.tr2 .sn{margin-bottom:12px}
+.pts{list-style:none;counter-reset:p;margin:0;padding:0;max-width:none}
+.pts li{counter-increment:p;position:relative;padding:0 0 0 34px;margin:0 0 14px;font-size:16px;line-height:1.55;color:var(--fg)}
+.pts li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:2px;font-size:11px;letter-spacing:.06em;color:var(--fg3);font-variant-numeric:tabular-nums}
+.tr2>.fg>.pts{padding-top:6px}
+.tr2.dec{padding:40px 0 8px}.tr2.dec+.tr2.dec{border-top:1px solid var(--hair);margin-top:32px}
+.tr2 .dn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 10px}
+.tr2 h3{margin:0 0 20px;font-size:21px;line-height:1.3}
+.wc{margin:0}.wc div{margin:0 0 16px}.wc dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 4px}
+.wc dd{margin:0;font-size:15.5px;line-height:1.55;color:var(--fg)}
+.tr2 figure{margin:0}.tr2 figcaption{font-size:13px}
+.tl .tlt{margin-top:24px}
+@media (max-width:860px){.tr2{grid-template-columns:1fr;row-gap:24px}}
+@media (max-width:860px){.ins div{grid-template-columns:1fr;row-gap:6px}}
+
+main{max-width:1448px;margin:0 auto;padding:0 24px 120px}
+.hero{padding:72px 0 36px}
+.eb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 20px}
+h1{font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing:-.03em;font-weight:600;color:var(--ink);margin:0 0 20px;max-width:21em;text-wrap:balance}
+.thesis{font-size:clamp(19px,1.9vw,24px);line-height:1.4;color:var(--fg2);margin:0;max-width:none}
+.cover{margin:16px 0 56px}.cover img{width:100%;border-radius:14px}
+article{max-width:none}
+/* one column; two widths: reading text 720px, wide items (cover, meta, figures, tables) the full column */
+article section{padding:64px 0 24px;border-top:1px solid var(--hair);scroll-margin-top:72px}
+article section:first-child{border-top:0}
+.sn{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 14px}
+article h2{font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--ink);font-weight:600;margin:0 0 24px;max-width:none;text-wrap:balance}
+article h3{font-size:21px;line-height:1.3;color:var(--ink);font-weight:600;margin:40px 0 14px}
+article .full>h3:first-child{margin-top:0}
+article p,article ul,article ol{max-width:none;margin:0 0 16px}article li{margin:6px 0}
+strong{color:var(--ink);font-weight:600}
+article a{text-decoration:underline;text-decoration-color:var(--fg3);text-underline-offset:3px}article a:hover{color:var(--ink)}
+figure{margin:36px 0 40px}figure img{width:100%;border-radius:12px;background:var(--tile)}
+figcaption{font-size:14px;line-height:1.5;color:var(--fg3);margin-top:12px;max-width:none}
+.ph{aspect-ratio:16/9;border:1px dashed var(--hair);border-radius:12px;display:grid;place-items:center;color:var(--fg3);font-size:14px;padding:24px;text-align:center}
+.tw{overflow-x:auto;margin:8px 0 24px;max-width:none}
+article .tw{background:var(--tile);border:1px solid var(--hair);border-radius:16px;padding:4px 0;overflow:hidden}
+table{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.5}
+th,td{text-align:left;padding:16px 24px;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+thead th{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);padding-top:18px;padding-bottom:14px}
+td:first-child{color:var(--fg3);font-size:14px;width:24%}
+td:nth-child(2){color:var(--fg2)}
+th:nth-child(3),td:nth-child(3){background:rgba(255,255,255,.045);color:var(--ink)}
+td:nth-child(3){font-weight:500}
+thead th:nth-child(3){color:var(--ink)}
+@media (max-width:640px){th,td{padding:12px 14px}td:first-child{width:auto}}
+@media (max-width:640px){article .tw thead{display:none}
+article .tw table,article .tw tbody,article .tw tr,article .tw td{display:block;width:auto}
+article .tw tr{padding:16px 18px;border-bottom:1px solid var(--hair)}article .tw tbody tr:last-child{border-bottom:0}
+article .tw td{border:0;padding:0;background:none}
+article .tw td:first-child{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px}
+article .tw td:nth-child(n+2){display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:3px 0}
+article .tw td:nth-child(n+2)::before{content:attr(data-h);color:var(--fg3);font-size:12.5px;font-weight:400;line-height:1.6}}
+mark.tbd{background:rgba(255,196,0,.14);color:#FFD566;border-radius:4px;padding:1px 5px;font-size:.88em}
+.next{display:block;margin-top:72px;padding:32px;border:1px solid var(--hair);border-radius:14px;max-width:none}
+.next:hover{border-color:var(--fg3)}.next .t{font-size:24px;color:var(--ink);font-weight:600;margin:6px 0 0}
+.all{display:inline-block;margin-top:24px;color:var(--fg3)}.all:hover{color:var(--ink)}
+.toc2{position:fixed;top:112px;width:168px;z-index:5;font-size:13px;line-height:1.35}
+.toc2 .h{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 12px 16px}
+.toc2 ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--hair)}
+.toc2 a{display:grid;grid-template-columns:24px 1fr;gap:4px;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--fg3);transition:color .15s}
+.toc2 a:hover{color:var(--fg)}.toc2 a[aria-current="true"]{color:var(--ink);border-left-color:var(--ink)}
+.toc2 .n{font-size:11px;font-variant-numeric:tabular-nums;padding-top:1px;opacity:.8}
+.toc2{left:max(24px,calc((100vw - 1520px)/2 + 24px))}
+@media (min-width:1280px){main{max-width:1520px;padding-left:288px}}
+@media (max-width:1279px){.toc2{display:none}}
+figure img,.cover img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,6,7,.94);display:none;overflow:auto;overscroll-behavior:contain}
+.lb.on{display:block}.lb .stage{min-height:100%;display:flex;align-items:center;justify-content:center;padding:56px 24px}
+.lb img{max-width:100%;max-height:calc(100vh - 112px);width:auto;height:auto;object-fit:contain;border-radius:8px;cursor:zoom-in}
+.lb.zoom .stage{display:block;padding:56px 24px}.lb.zoom img{max-width:none;max-height:none;cursor:zoom-out;margin:0 auto;display:block}
+.lb .x{position:fixed;top:14px;right:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);background:rgba(20,21,24,.9);color:#fff;font:400 22px/1 Inter,sans-serif;cursor:pointer;z-index:2}
+.lb .x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lb .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--fg3)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:560px){.crumb>a,.crumb>.sep{display:none}.pick summary .pt{max-width:calc(100vw - 200px)}.top .in{gap:12px}
+body{font-size:16px}.hero{padding-top:48px}article section{padding-top:48px}}
+
+/* v6: readable measure; TL;DR mode shows only the kept sections */
+article .full>p,article .full>ul,article .full>ol,article .full>h3,article .full>blockquote{max-width:none}
+article .full>.tw{max-width:none}
+
+</style></head><body>
+<header class="top"><div class="in"><nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Cathy Xu</a><span class="sep">/</span><details class="pick"><summary><span class="pt">Sign AI</span><i aria-hidden="true"></i></summary><ul><li><a href="digital-id.html">National Digital ID</a></li><li><a href="registry.html">Property Registry</a></li><li><a href="sign-ai.html" aria-current="page">Sign AI</a></li><li><a href="keylys.html">Keylys</a></li><li><a href="orange-dynasty.html">Orange Dynasty</a></li><li><a href="ethsign.html">EthSign</a></li></ul></details></nav><div class="toggle" role="group" aria-label="Reading mode"><button type="button" data-mode="detail">Detailed</button><button type="button" data-mode="tldr">TL;DR</button></div></div></header>
+<nav class="toc2" aria-label="On this page"><p class="h">On this page</p><ol><li><a href="#top"><span class="n">01</span><span>Overview</span></a></li><li><a href="#the-brief"><span class="n">02</span><span>The brief</span></a></li><li><a href="#research"><span class="n">03</span><span>Research</span></a></li><li><a href="#source-rule"><span class="n">04</span><span>Source rule</span></a></li><li><a href="#guided-path"><span class="n">05</span><span>Guided path</span></a></li><li><a href="#knowledge-base-management"><span class="n">06</span><span>Knowledge base management</span></a></li><li><a href="#result"><span class="n">07</span><span>Result</span></a></li></ol></nav><main>
+<div class="hero" id="top"><p class="eb">Case 03 · Government AI assistant</p>
+<h1>A public-service AI assistant for citizens that answers only from a checked source, plus a dashboard for knowledge base management.</h1></div>
+<div class="cover"><img src="figs-v5/sign-ai/cover-v6.webp" data-full="figs-v5/sign-ai/cover-v6@full.webp" alt="A government AI assistant whose answers trace back to a law and a date"></div>
+<dl class="metar"><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Team</dt><dd>1 PM, 2 engineers</dd></div><div><dt>Timeline</dt><dd>July 2026 to October 2026</dd></div><div><dt>Status</dt><dd>Coming soon</dd></div></dl><dl class="ins tldr-only"><div><dt>In one line</dt><dd>The brief was a chat box for citizens. I designed an assistant that answers only from a source, and a dashboard that shows each department where answers fall short.</dd></div><div><dt>Problem</dt><dd>Citizens in Kyrgyzstan work out tax rules alone, and a wrong answer from a government AI is worse than none.</dd></div><div><dt>What I did</dt><dd><ul><li>The source decides what the AI may say. Checked source: full answer. Outside source: a note. No source: no answer.</li><li>A guided path for each task, starting with tax deductions. Typing stays open.</li><li>A dashboard for each department, with every fix reviewed before it goes live.</li></ul></dd></div><div><dt>Result</dt><dd>Demoed to three government contacts in Kyrgyz, Russian and English. Not launched.</dd></div></dl>
+<article class="keep"><section id="the-brief" class="tk"><div class="hd"><p class="sn">02 · The brief</p><h2>From a chat box to a public-service AI assistant for citizens</h2></div><div class="full"><p>The brief was a basic chat assistant where citizens of Kyrgyzstan ask how to get things done through Tunduk, the national services portal.</p>
+<p>A chat box left two questions open. What does the AI say when it isn't sure? And who keeps its answers right when a law changes? For a government, one wrong answer is a public problem. <strong>So I designed an assistant that answers only as far as its source allows, and a dashboard that shows each department where answers fall short.</strong></p>
+<p>The use case for the pilot: "Can I claim a deduction for my child's tuition?"</p>
+<figure><img src="figs-v5/sign-ai/sai-pd-5-brief-vs-designed.webp" data-full="figs-v5/sign-ai/sai-pd-5-brief-vs-designed@full.webp" alt="From a chat box to a public-service AI assistant for citizens" loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">02 · The brief</p><h2>From a chat box to a public-service AI assistant for citizens</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The brief was a basic chat assistant where citizens of Kyrgyzstan ask how to get things done through Tunduk, the national services portal.</li><li>A chat box left two questions open.</li><li>The use case for the pilot: "Can I claim a deduction for my child's tuition?"</li></ol></div><div class="fg"><figure><img src="figs-v5/sign-ai/sai-pd-5-brief-vs-designed.webp" data-full="figs-v5/sign-ai/sai-pd-5-brief-vs-designed@full.webp" alt="From a chat box to a public-service AI assistant for citizens" loading="lazy"></figure></div></div></div></section><section id="research"><div class="hd"><p class="sn">03 · Research</p><h2>Citizens need step-by-step guides, starting with tax deductions</h2></div><div class="full"><!-- tldr: There are two users: the citizen asks, the government owns the answer and has to keep it right. | Quoting a law isn't enough. Citizens also need to know what to do next. | I sorted 14 features by value to citizens and by effort. Sources and a handoff to a person came first. | Tax deductions came first: citizens worked them out alone, they end in a refund, and the government cared most. -->
+
+<p>There are two users. The citizen asks the question. The government owns the answer and has to keep it right. Everything below follows from that.</p>
+<p>I researched Kazakhstan's AlemGPT and China's State Council service guide. <strong>Both showed that quoting a law isn't enough. Citizens also need to know what to do next, and a step-by-step guide tells them.</strong> That lesson became the guided path.</p>
+<p>From that research I listed 14 features and sorted them by value to citizens and by effort. Sources on every answer and a handoff to a person came first. The dashboard was high effort, but I kept it: without it, no one in government could see where answers fall short or fix them when a law changes. Life-event bundles and reminders could wait.</p>
+<figure><img src="figs-v5/sign-ai/sai-pd-1-what-to-build-first.webp" data-full="figs-v5/sign-ai/sai-pd-1-what-to-build-first@full.webp" alt="Citizens need step-by-step guides, starting with tax deductions" loading="lazy"></figure>
+<p>Tax deductions came first. Citizens had to find the right rule, check whether they qualify and gather papers alone. Tax also ends in a refund, and the government cared about it most.</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">03 · Research</p><h2>Citizens need step-by-step guides, starting with tax deductions</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>There are two users: the citizen asks, the government owns the answer and has to keep it right.</li><li>Quoting a law isn't enough. Citizens also need to know what to do next.</li><li>I sorted 14 features by value to citizens and by effort. Sources and a handoff to a person came first.</li><li>Tax deductions came first: citizens worked them out alone, they end in a refund, and the government cared most.</li></ol></div><div class="fg"><figure><img src="figs-v5/sign-ai/sai-pd-1-what-to-build-first.webp" data-full="figs-v5/sign-ai/sai-pd-1-what-to-build-first@full.webp" alt="Citizens need step-by-step guides, starting with tax deductions" loading="lazy"></figure></div></div></div></section><section id="source-rule"><div class="hd"><p class="sn">04 · Source rule</p><h2>The assistant only says what a checked source supports</h2></div><div class="full"><p><strong>The assistant answers only as far as its source allows, so a citizen never carries the risk of a wrong answer.</strong> A blanket "AI may be wrong" note would push that risk onto the citizen instead.</p>
+<ul>
+<li>Checked by the agency: a full answer, with its law and last-checked date.</li>
+<li>Outside source only: an answer marked "Not checked by the agency".</li>
+<li>No source: no answer. The assistant suggests three similar questions, or a person with an appeal tracking number.</li>
+</ul>
+<p>The tuition question is checked, so its answer cites Article 195 of the Tax Code, shows when it was last verified and links to the official source. Who qualifies, how much, where and by when sit in one card.</p>
+<p>The cost: the assistant declines more often than a typical chatbot. And the rule can't catch a correct source the AI misreads; the dashboard catches that.</p>
+<figure><img src="figs-v5/sign-ai/sai-pd-2-never-answer-without-a-source.webp" data-full="figs-v5/sign-ai/sai-pd-2-never-answer-without-a-source@full.webp" alt="The assistant only says what a checked source supports" loading="lazy"></figure>
+<figure><img src="figs-v5/sign-ai/sai-pd-4-every-answer-shows-its-law.webp" data-full="figs-v5/sign-ai/sai-pd-4-every-answer-shows-its-law@full.webp" alt="The assistant only says what a checked source supports" loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">04 · Source rule</p><h2>The assistant only says what a checked source supports</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The assistant answers only as far as its source allows, so a citizen never carries the risk of a wrong answer.</li><li>Checked by the agency: a full answer, with its law and last-checked date.</li><li>Outside source only: an answer marked "Not checked by the agency". No source: no answer, and a next step instead.</li><li>The cost: the assistant declines more often than a typical chatbot.</li></ol></div><div class="fg"><figure><img src="figs-v5/sign-ai/sai-pd-2-never-answer-without-a-source.webp" data-full="figs-v5/sign-ai/sai-pd-2-never-answer-without-a-source@full.webp" alt="The assistant only says what a checked source supports" loading="lazy"></figure></div></div></div></section><section id="guided-path"><div class="hd"><p class="sn">05 · Guided path</p><h2>From the answer to a filed deduction, one question at a time</h2></div><div class="full"><p>The answer card ends with next steps, one of them "Step-by-step filing". It asks one thing at a time:</p>
+<ul>
+<li>The citizen picks a deduction type: standard, social or property.</li>
+<li>With their permission, the assistant fetches their records from Tunduk.</li>
+<li>It does the math, so they see the refund before filing.</li>
+<li>They upload the tuition contract and receipts, and pick the bank account for the refund.</li>
+<li>A receipt confirms the submission.</li>
+</ul>
+<p><strong>Citizens can leave the path and type at any point; the path keeps most questions inside what the AI knows.</strong> Each new task needs its own path. Property and business registration were next on the list.</p>
+<figure><img src="figs-v5/sign-ai/sai-pd-3-guided-path.webp" data-full="figs-v5/sign-ai/sai-pd-3-guided-path@full.webp" alt="From the answer to a filed deduction, one question at a time" loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">05 · Guided path</p><h2>From the answer to a filed deduction, one question at a time</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The answer card ends with next steps, one of them "Step-by-step filing".</li><li>The citizen picks a deduction type: standard, social or property.</li><li>With their permission, the assistant fetches their records from Tunduk.</li><li>It does the math, so they see the refund before filing.</li></ol></div><div class="fg"><figure><img src="figs-v5/sign-ai/sai-pd-3-guided-path.webp" data-full="figs-v5/sign-ai/sai-pd-3-guided-path@full.webp" alt="From the answer to a filed deduction, one question at a time" loading="lazy"></figure></div></div></div></section><section id="knowledge-base-management"><div class="hd"><p class="sn">06 · Knowledge base management</p><h2>Each department fixes its own gaps</h2></div><div class="full"><p><strong>The source rule stops answers without a source, but laws change and gaps appear, so someone has to keep the knowledge base right.</strong> When Sign demoed the prototype to three government contacts in Kyrgyz, Russian and English, they asked exactly that: how do you make sure the answers are trustworthy, and who maintains the knowledge base?</p>
+<p>Beyond the brief, I proposed a dashboard for each department, such as finance or transport, which owns its part of the knowledge base. Every number on it leads to an action:</p>
+<ul>
+<li>Top questions by region. In the sample data, the tuition question leads.</li>
+<li>Unanswered questions, such as "Do online courses qualify?", shown as gaps to fill.</li>
+<li>Policies unchecked for 90 days, flagged for update.</li>
+<li>Thumbs-down answers, which staff check first.</li>
+</ul>
+<p><strong>A gap is fixed in four steps (find, revise, review, publish), and two people sign off before it goes live.</strong> Fixes take longer, but a rushed fix would put a new wrong answer in front of citizens.</p>
+<figure><img src="figs-v5/sign-ai/sai-pd-6-government-dashboard.webp" data-full="figs-v5/sign-ai/sai-pd-6-government-dashboard@full.webp" alt="Each department fixes its own gaps" loading="lazy"></figure>
+<figure><img src="figs-v5/sign-ai/sai-pd-7-trust-is-a-loop.webp" data-full="figs-v5/sign-ai/sai-pd-7-trust-is-a-loop@full.webp" alt="Each department fixes its own gaps" loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">06 · Knowledge base management</p><h2>Each department fixes its own gaps</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The source rule stops answers without a source, but laws change and gaps appear, so someone has to keep the knowledge base right.</li><li>In the demo, government contacts asked how answers stay trustworthy and who maintains the knowledge base.</li><li>Each department gets a dashboard for its part of the knowledge base, where every number leads to an action.</li><li>A gap is fixed in four steps (find, revise, review, publish), and two people sign off before it goes live.</li></ol></div><div class="fg"><figure><img src="figs-v5/sign-ai/sai-pd-6-government-dashboard.webp" data-full="figs-v5/sign-ai/sai-pd-6-government-dashboard@full.webp" alt="Each department fixes its own gaps" loading="lazy"></figure></div></div></div></section><section id="result" class="tk"><div class="hd"><p class="sn">07 · Result</p><h2>Demoed to government contacts in Kyrgyz, Russian and English</h2></div><div class="full"><p><strong>Sign demoed this design to three government contacts in Kyrgyz, Russian and English.</strong></p>
+<p><strong>The assistant has not launched to citizens yet.</strong> In a pilot I would measure the share of answers that cite a source, how often questions go unanswered, how often citizens ask again, and whether Kyrgyz questions get answers as good as Russian ones.</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">07 · Result</p><h2>Demoed to government contacts in Kyrgyz, Russian and English</h2></div></div><div class="tr2 one"><div class="tx"><ol class="pts"><li>Sign demoed this design to three government contacts in Kyrgyz, Russian and English.</li></ol></div></div></div></section></article>
+<a class="next" href="keylys.html"><span class="eb">Next case study</span><p class="t">Keylys</p></a>
+<a class="all" href="index.html">← All case studies</a>
+</main><script>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}if(!location.hash){window.scrollTo(0,0);addEventListener('pageshow',function(){window.scrollTo(0,0)})}})();</script><script>(function(){var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Full image');
+lb.innerHTML='<button class="x" type="button" aria-label="Close">×</button><div class="stage"><img alt=""></div><p class="hint">Click the image to see it at full size · Esc to close</p>';document.body.appendChild(lb);
+var im=lb.querySelector('img'),x=lb.querySelector('.x'),last=null;
+function open(t){last=t;im.src=t.dataset.full||t.src;im.alt=t.alt||'';lb.classList.remove('zoom');lb.classList.add('on');document.documentElement.style.overflow='hidden';x.focus();}
+function close(){lb.classList.remove('on','zoom');document.documentElement.style.overflow='';if(last)last.focus&&last.focus();}
+document.querySelectorAll('figure img, .cover img').forEach(function(t){t.tabIndex=0;t.addEventListener('click',function(){open(t)});t.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();open(t)}})});
+im.addEventListener('click',function(e){e.stopPropagation();lb.classList.toggle('zoom');});
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('stage'))close()});x.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});})();</script><script>(function(){var d=document.querySelector('.pick');if(!d)return;document.addEventListener('click',function(ev){if(d.open&&!d.contains(ev.target))d.open=false});document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});})();</script><script>(function(){var b=[].slice.call(document.querySelectorAll('[data-mode]'));
+function set(m){document.body.classList.toggle('tldr',m==='tldr');b.forEach(function(x){x.classList.toggle('on',x.dataset.mode===m);x.setAttribute('aria-pressed',x.dataset.mode===m)});try{localStorage.setItem('case-mode',m)}catch(e){}}
+b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.mode)})});set('detail');})();</script><script>(function(){var l=[].slice.call(document.querySelectorAll('.toc2 a'));if(!l.length||!('IntersectionObserver' in window))return;
+var m={};l.forEach(function(a){m[a.getAttribute('href').slice(1)]=a});
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){l.forEach(function(a){a.removeAttribute('aria-current')});var a=m[e.target.id];if(a)a.setAttribute('aria-current','true')}})},{rootMargin:'-35% 0px -60% 0px'});
+Object.keys(m).forEach(function(id){var s=document.getElementById(id);if(s)o.observe(s)})})();</script></body></html>

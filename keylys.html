@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keylys · Cathy Xu</title>
+<meta name="description" content="A mobile app for a private-wealth firm’s high-net-worth clients, plus a portal for their relationship managers.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cathy Xu">
+<meta property="og:title" content="Keylys · Cathy Xu">
+<meta property="og:description" content="A mobile app for a private-wealth firm’s high-net-worth clients, plus a portal for their relationship managers.">
+<meta property="og:url" content="https://cathyxu.design/keylys.html">
+<meta property="og:image" content="https://cathyxu.design/og/keylys.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cathyxu.design/og/keylys.jpg">
+<link rel="canonical" href="https://cathyxu.design/keylys.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0A0A0B;--fg:rgba(255,255,255,.84);--fg2:rgba(255,255,255,.66);--fg3:rgba(255,255,255,.46);--hair:rgba(255,255,255,.12);--ink:#fff;--tile:#141518}
+*{box-sizing:border-box}html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto;object-fit:contain}
+.top{position:sticky;top:0;z-index:10;background:rgba(10,10,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+.top .in{max-width:1520px;margin:0 auto;padding:0 max(24px,env(safe-area-inset-left,0px));height:60px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--fg3)}
+.top a:hover{color:var(--ink)}.top b{color:var(--ink);font-weight:500}
+.top .in{justify-content:space-between}
+.crumb{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap;color:var(--fg3)}.crumb .sep{color:var(--fg3)}
+.pick{position:relative;min-width:0}
+.pick summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;color:#fff;font-weight:500;padding:6px 10px;margin:-6px -10px;border-radius:8px}
+.pick summary::-webkit-details-marker{display:none}.pick summary:hover,.pick[open] summary{background:rgba(255,255,255,.08)}
+.pick summary:focus-visible{outline:2px solid #fff;outline-offset:2px}.pick summary .pt{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pick summary i{flex:none;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.pick[open] summary i{transform:translateY(1px) rotate(225deg)}
+.pick ul{position:absolute;left:-10px;top:calc(100% + 10px);min-width:240px;list-style:none;margin:0;padding:6px;background:#17181C;border:1px solid var(--hair);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);z-index:20}
+.pick li a{display:block;padding:9px 12px;border-radius:8px;color:var(--fg);font-size:14px}.pick li a:hover{background:rgba(255,255,255,.07);color:#fff}
+.pick li a[aria-current]{color:#fff;font-weight:500}.pick li a[aria-current]::after{content:"✓";float:right;color:var(--fg3)}
+.toggle{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:2px;gap:2px;flex:none}
+.toggle button{font:inherit;font-size:12.5px;font-weight:500;border:0;background:none;color:var(--fg3);padding:6px 13px;border-radius:999px;cursor:pointer}
+.toggle button.on{background:#fff;color:#0A0A0B}.toggle button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.metar{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;margin:0 0 72px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.metar div{padding:18px 20px 18px 0}.metar div+div{padding-left:20px;border-left:1px solid var(--hair)}
+.metar dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 6px}.metar dd{margin:0;color:var(--fg);font-size:15px;line-height:1.45}
+@media (max-width:760px){.metar{grid-auto-flow:row;grid-template-columns:1fr 1fr}.metar div:nth-child(3){padding-left:0;border-left:0}.metar div:nth-child(n+3){border-top:1px solid var(--hair)}}
+body.tldr article li.k{list-style:disc}
+.tl{display:none}.tldr-only{display:none}
+body.tldr .tldr-only{display:block}body.tldr .full{display:none}body.tldr .tl{display:block}
+.ins{margin:-40px 0 64px;padding:0}
+.ins div{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:32px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.ins dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.ins dd{margin:0;color:var(--ink);font-size:17px;line-height:1.5;max-width:none}.ins ul{margin:0;padding-left:18px}.ins li{margin:2px 0}
+body.tldr article section{padding:44px 0}
+body.tldr article h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:18px}
+
+body.tldr article .hd{display:none}
+.tr2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:64px;align-items:start}
+.tr2.hdonly{grid-template-columns:1fr;margin-bottom:8px}.tr2.one{grid-template-columns:minmax(0,1fr);max-width:none}
+.tr2 h2{margin:0 0 20px}.tr2 .sn{margin-bottom:12px}
+.pts{list-style:none;counter-reset:p;margin:0;padding:0;max-width:none}
+.pts li{counter-increment:p;position:relative;padding:0 0 0 34px;margin:0 0 14px;font-size:16px;line-height:1.55;color:var(--fg)}
+.pts li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:2px;font-size:11px;letter-spacing:.06em;color:var(--fg3);font-variant-numeric:tabular-nums}
+.tr2>.fg>.pts{padding-top:6px}
+.tr2.dec{padding:40px 0 8px}.tr2.dec+.tr2.dec{border-top:1px solid var(--hair);margin-top:32px}
+.tr2 .dn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 10px}
+.tr2 h3{margin:0 0 20px;font-size:21px;line-height:1.3}
+.wc{margin:0}.wc div{margin:0 0 16px}.wc dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 4px}
+.wc dd{margin:0;font-size:15.5px;line-height:1.55;color:var(--fg)}
+.tr2 figure{margin:0}.tr2 figcaption{font-size:13px}
+.tl .tlt{margin-top:24px}
+@media (max-width:860px){.tr2{grid-template-columns:1fr;row-gap:24px}}
+@media (max-width:860px){.ins div{grid-template-columns:1fr;row-gap:6px}}
+
+main{max-width:1448px;margin:0 auto;padding:0 24px 120px}
+.hero{padding:72px 0 36px}
+.eb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 20px}
+h1{font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing:-.03em;font-weight:600;color:var(--ink);margin:0 0 20px;max-width:21em;text-wrap:balance}
+.thesis{font-size:clamp(19px,1.9vw,24px);line-height:1.4;color:var(--fg2);margin:0;max-width:none}
+.cover{margin:16px 0 56px}.cover img{width:100%;border-radius:14px}
+article{max-width:none}
+/* one column; two widths: reading text 720px, wide items (cover, meta, figures, tables) the full column */
+article section{padding:64px 0 24px;border-top:1px solid var(--hair);scroll-margin-top:72px}
+article section:first-child{border-top:0}
+.sn{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 14px}
+article h2{font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--ink);font-weight:600;margin:0 0 24px;max-width:none;text-wrap:balance}
+article h3{font-size:21px;line-height:1.3;color:var(--ink);font-weight:600;margin:40px 0 14px}
+article .full>h3:first-child{margin-top:0}
+article p,article ul,article ol{max-width:none;margin:0 0 16px}article li{margin:6px 0}
+strong{color:var(--ink);font-weight:600}
+article a{text-decoration:underline;text-decoration-color:var(--fg3);text-underline-offset:3px}article a:hover{color:var(--ink)}
+figure{margin:36px 0 40px}figure img{width:100%;border-radius:12px;background:var(--tile)}
+figcaption{font-size:14px;line-height:1.5;color:var(--fg3);margin-top:12px;max-width:none}
+.ph{aspect-ratio:16/9;border:1px dashed var(--hair);border-radius:12px;display:grid;place-items:center;color:var(--fg3);font-size:14px;padding:24px;text-align:center}
+.tw{overflow-x:auto;margin:8px 0 24px;max-width:none}
+article .tw{background:var(--tile);border:1px solid var(--hair);border-radius:16px;padding:4px 0;overflow:hidden}
+table{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.5}
+th,td{text-align:left;padding:16px 24px;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+thead th{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);padding-top:18px;padding-bottom:14px}
+td:first-child{color:var(--fg3);font-size:14px;width:24%}
+td:nth-child(2){color:var(--fg2)}
+th:nth-child(3),td:nth-child(3){background:rgba(255,255,255,.045);color:var(--ink)}
+td:nth-child(3){font-weight:500}
+thead th:nth-child(3){color:var(--ink)}
+@media (max-width:640px){th,td{padding:12px 14px}td:first-child{width:auto}}
+@media (max-width:640px){article .tw thead{display:none}
+article .tw table,article .tw tbody,article .tw tr,article .tw td{display:block;width:auto}
+article .tw tr{padding:16px 18px;border-bottom:1px solid var(--hair)}article .tw tbody tr:last-child{border-bottom:0}
+article .tw td{border:0;padding:0;background:none}
+article .tw td:first-child{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px}
+article .tw td:nth-child(n+2){display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:3px 0}
+article .tw td:nth-child(n+2)::before{content:attr(data-h);color:var(--fg3);font-size:12.5px;font-weight:400;line-height:1.6}}
+mark.tbd{background:rgba(255,196,0,.14);color:#FFD566;border-radius:4px;padding:1px 5px;font-size:.88em}
+.next{display:block;margin-top:72px;padding:32px;border:1px solid var(--hair);border-radius:14px;max-width:none}
+.next:hover{border-color:var(--fg3)}.next .t{font-size:24px;color:var(--ink);font-weight:600;margin:6px 0 0}
+.all{display:inline-block;margin-top:24px;color:var(--fg3)}.all:hover{color:var(--ink)}
+.toc2{position:fixed;top:112px;width:168px;z-index:5;font-size:13px;line-height:1.35}
+.toc2 .h{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 12px 16px}
+.toc2 ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--hair)}
+.toc2 a{display:grid;grid-template-columns:24px 1fr;gap:4px;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--fg3);transition:color .15s}
+.toc2 a:hover{color:var(--fg)}.toc2 a[aria-current="true"]{color:var(--ink);border-left-color:var(--ink)}
+.toc2 .n{font-size:11px;font-variant-numeric:tabular-nums;padding-top:1px;opacity:.8}
+.toc2{left:max(24px,calc((100vw - 1520px)/2 + 24px))}
+@media (min-width:1280px){main{max-width:1520px;padding-left:288px}}
+@media (max-width:1279px){.toc2{display:none}}
+figure img,.cover img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,6,7,.94);display:none;overflow:auto;overscroll-behavior:contain}
+.lb.on{display:block}.lb .stage{min-height:100%;display:flex;align-items:center;justify-content:center;padding:56px 24px}
+.lb img{max-width:100%;max-height:calc(100vh - 112px);width:auto;height:auto;object-fit:contain;border-radius:8px;cursor:zoom-in}
+.lb.zoom .stage{display:block;padding:56px 24px}.lb.zoom img{max-width:none;max-height:none;cursor:zoom-out;margin:0 auto;display:block}
+.lb .x{position:fixed;top:14px;right:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);background:rgba(20,21,24,.9);color:#fff;font:400 22px/1 Inter,sans-serif;cursor:pointer;z-index:2}
+.lb .x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lb .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--fg3)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:560px){.crumb>a,.crumb>.sep{display:none}.pick summary .pt{max-width:calc(100vw - 200px)}.top .in{gap:12px}
+body{font-size:16px}.hero{padding-top:48px}article section{padding-top:48px}}
+
+/* v6: readable measure; TL;DR mode shows only the kept sections */
+article .full>p,article .full>ul,article .full>ol,article .full>h3,article .full>blockquote{max-width:none}
+article .full>.tw{max-width:none}
+
+</style></head><body>
+<header class="top"><div class="in"><nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Cathy Xu</a><span class="sep">/</span><details class="pick"><summary><span class="pt">Keylys</span><i aria-hidden="true"></i></summary><ul><li><a href="digital-id.html">National Digital ID</a></li><li><a href="registry.html">Property Registry</a></li><li><a href="sign-ai.html">Sign AI</a></li><li><a href="keylys.html" aria-current="page">Keylys</a></li><li><a href="orange-dynasty.html">Orange Dynasty</a></li><li><a href="ethsign.html">EthSign</a></li></ul></details></nav><div class="toggle" role="group" aria-label="Reading mode"><button type="button" data-mode="detail">Detailed</button><button type="button" data-mode="tldr">TL;DR</button></div></div></header>
+<nav class="toc2" aria-label="On this page"><p class="h">On this page</p><ol><li><a href="#top"><span class="n">01</span><span>Overview</span></a></li><li><a href="#context"><span class="n">02</span><span>Context</span></a></li><li><a href="#insight"><span class="n">03</span><span>Insight</span></a></li><li><a href="#late-data"><span class="n">04</span><span>Late data</span></a></li><li><a href="#messages"><span class="n">05</span><span>Messages</span></a></li><li><a href="#rm-portal"><span class="n">06</span><span>RM Portal</span></a></li><li><a href="#scope"><span class="n">07</span><span>Scope</span></a></li></ol></nav><main>
+<div class="hero" id="top"><p class="eb">Case 04 · Private-wealth client app</p>
+<h1>A mobile app for a private-wealth firm’s high-net-worth clients, plus a portal for their relationship managers.</h1></div>
+<div class="cover"><img src="figs-v5/keylys/cover-v6.webp" data-full="figs-v5/keylys/cover-v6@full.webp" alt="A Swiss wealth‑management app where every advisor message is kept for compliance"></div>
+<dl class="metar"><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Team</dt><dd>1 PM, 2 engineers</dd></div><div><dt>Timeline</dt><dd>August 2026 to now</dd></div><div><dt>Status</dt><dd>Coming soon</dd></div></dl><dl class="ins tldr-only"><div><dt>In one line</dt><dd>A wealth client's morning ran across several bank apps, a laptop and scattered chats with their relationship manager (RM). I designed a mobile app that opens on what needs the client, then a total that says how current it is, plus a portal for the RM.</dd></div><div><dt>Problem</dt><dd>Assets in different apps, chats in different channels, to-dos in the client's head.</dd></div><div><dt>What I did</dt><dd><ul><li>What needs the client comes first on the Overview, then the total.</li><li>Late data shows its date. The client sees the last confirmed figure and when it was valued.</li><li>I took out the five topic cards I had designed. A client just writes, and only the assigned RM replies.</li></ul></dd></div><div><dt>Result</dt><dd>In testing with the firm.</dd></div></dl>
+<article class="keep"><section id="context"><div class="hd"><p class="sn">02 · Context</p><h2>Assets, messages and to-dos lived in different places</h2></div><div class="full"><p>A private-wealth firm wanted one app for its high-net-worth clients: no more opening each bank's app, and no more logging in on a computer. In 200 pieces of client feedback, clients described the same morning. They open one bank's app, then another. Statements wait on a laptop. Questions for their relationship manager (RM) go by email or a chat app, depending on the day. Whatever is due, a form to confirm or a document to sign, they have to remember themselves.</p>
+<p><strong>Three things were scattered: the assets, the conversations and the to-do list.</strong></p>
+<figure><img src="figs-v5/keylys/ky-pd-1-clients-morning.webp" data-full="figs-v5/keylys/ky-pd-1-clients-morning@full.webp" alt="A client&#x27;s morning, across apps, channels and memory." loading="lazy"></figure>
+<p>The first phase is read-only. There is no trading, no payments and no custody of assets. Nothing may look like investment advice: there are no buy or sell buttons, and every page says "Figures are indicative. Your custodian statement prevails."</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">02 · Context</p><h2>Assets, messages and to-dos lived in different places</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>A private-wealth firm wanted one app for its high-net-worth clients: no more opening each bank's app, and no more logging in on a computer.</li><li>In 200 pieces of client feedback, clients described opening several bank apps, reading statements on a laptop and messaging their RM by email or chat.</li><li>Three things were scattered: the assets, the conversations and the to-do list.</li></ol></div><div class="fg"><figure><img src="figs-v5/keylys/ky-pd-1-clients-morning.webp" data-full="figs-v5/keylys/ky-pd-1-clients-morning@full.webp" alt="A client&#x27;s morning, across apps, channels and memory." loading="lazy"></figure></div></div></div></section><section id="insight" class="tk"><div class="hd"><p class="sn">03 · Insight</p><h2>Clients first check what needs them, then their balance</h2></div><div class="full"><p>The same feedback showed what clients look for first: is there anything for me? A task, a new statement, or a reply from their RM. Only after that did they want the total.</p>
+<figure><img src="figs-v5/keylys/ky-pd-2-overview-before-after.webp" data-full="figs-v5/keylys/ky-pd-2-overview-before-after@full.webp" alt="Before, the total filled the screen and the task came fourth. After, what needs the client comes first." loading="lazy"></figure>
+<p>The previous design did the opposite. Total wealth filled the top of the screen, and the one item that needed a response came fourth.</p>
+<p><strong>I moved "Needs your attention" to the top, under a compact total.</strong>
+Each task shows its due date, next to each new reply from the RM. New documents come next, and details of the total are one tap away. When nothing is due, the greeting changes to "All settled" and the full total moves up.</p>
+<p>I also tried keeping the total on top with a badge for tasks. A badge still asks the client to go looking. The price of the new order is that on busy days the total is no longer the biggest thing on screen. Clients who want the breakdown tap once.</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">03 · Insight</p><h2>Clients first check what needs them, then their balance</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The same feedback showed what clients look for first: is there anything for me?</li><li>The previous design did the opposite.</li><li>I moved "Needs your attention" to the top, under a compact total.</li><li>Each task shows its due date, next to each new reply from the RM.</li></ol></div><div class="fg"><figure><img src="figs-v5/keylys/ky-pd-2-overview-before-after.webp" data-full="figs-v5/keylys/ky-pd-2-overview-before-after@full.webp" alt="Before, the total filled the screen and the task came fourth. After, what needs the client comes first." loading="lazy"></figure></div></div></div></section><section id="late-data" class="tk"><div class="hd"><p class="sn">04 · Late data</p><h2>When bank data is late, show the last confirmed figure and its date</h2></div><div class="full"><p><strong>The firm's hardest rule is that a client never sees a wrong number.</strong> Bank data arrives once a day, and sometimes a value fails the firm's checks. The app still has to show something.</p>
+<p>A new value with a warning still puts a doubtful number in front of the client. Hiding the value makes it look like money is missing. The last confirmed figure, labelled with its date, is both correct and complete, so that is what the app shows.</p>
+<p>Every total shows when it was valued, and a banner explains why some figures are older. A fix can take days, so the banner stays until the data is confirmed again.</p>
+<figure><img src="figs-v5/keylys/ky-pd-3-data-you-can-trust.webp" data-full="figs-v5/keylys/ky-pd-3-data-you-can-trust@full.webp" alt="The last confirmed figure, with its date and a plain explanation." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">04 · Late data</p><h2>When bank data is late, show the last confirmed figure and its date</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The firm's hardest rule: a client never sees a wrong number.</li><li>Bank data arrives once a day, and sometimes a value fails the firm's checks.</li><li>A warning still shows a doubtful number; a blank looks like missing money.</li><li>The app shows the last confirmed figure with its date, and a banner until the data is confirmed again.</li></ol></div><div class="fg"><figure><img src="figs-v5/keylys/ky-pd-3-data-you-can-trust.webp" data-full="figs-v5/keylys/ky-pd-3-data-you-can-trust@full.webp" alt="The last confirmed figure, with its date and a plain explanation." loading="lazy"></figure></div></div></div></section><section id="messages"><div class="hd"><p class="sn">05 · Messages</p><h2>Clients just write, and the RM sorts the message</h2></div><div class="full"><p><strong>The firm sends complaints to a separate team, so my first design asked clients to pick one of five topics before writing.</strong> In the product team's review of the first build, the cards read like a support ticket: the client had to sort the message for the firm before saying a word.</p>
+<p>The test: nothing should stand between the client and their first word. Optional topics or a single complaint flag still ask the client to decide first. A plain message passes, so a message is now one field and a Send button, and a failed send keeps the draft.</p>
+<figure><img src="figs-v5/keylys/ky-pd-4-starting-a-message.webp" data-full="figs-v5/keylys/ky-pd-4-starting-a-message@full.webp" alt="Five topic cards became one field." loading="lazy"></figure>
+<p>The sorting moved to the RM, who has the context. The RM now spots a complaint and passes it on, which keeps the firm's rule; testing will show whether RMs keep up. Since then, early in a flow I ask who has the context to do each step.</p>
+<figure><img src="figs-v5/keylys/ky-pd-5-conversation-not-ticket.webp" data-full="figs-v5/keylys/ky-pd-5-conversation-not-ticket@full.webp" alt="The client sees a conversation, not a ticket." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">05 · Messages</p><h2>Clients just write, and the RM sorts the message</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The firm routes complaints to a separate team, so my first design asked clients to pick one of five topics.</li><li>In review, the cards read like a support ticket.</li><li>Optional topics or a complaint flag still make the client decide first, so a message is now one field and Send.</li><li>Sorting moved to the RM, who has the context.</li></ol></div><div class="fg"><figure><img src="figs-v5/keylys/ky-pd-4-starting-a-message.webp" data-full="figs-v5/keylys/ky-pd-4-starting-a-message@full.webp" alt="Five topic cards became one field." loading="lazy"></figure></div></div></div></section><section id="rm-portal"><div class="hd"><p class="sn">06 · RM Portal</p><h2>Only the assigned RM replies, all on record</h2></div><div class="full"><p>The client side only works if messages can't sit unseen, so I designed the RM's side too.</p>
+<p>Replies could come from a shared team inbox where any RM answers, or only from the client's assigned RM.
+<strong>Only the client's assigned RM replies, because in the first phase each client's relationship is with one RM, not a team.</strong></p>
+<ul>
+<li>One inbox with unread counts, filters by topic and status, and search.</li>
+<li>The RM sets the topic and status, so sorting happens where the context is.</li>
+<li>History stays on the client's record. When a client moves to another RM, an admin makes the change and states why.</li>
+<li>Email alerts say a message is waiting, without its content, so the text never leaves the firm's system.</li>
+</ul>
+<p>When the assigned RM is away, the client waits. A backup RM is planned for a later phase.</p>
+<figure><img src="figs-v5/keylys/ky-pd-6-rm-portal.webp" data-full="figs-v5/keylys/ky-pd-6-rm-portal@full.webp" alt="The RM&#x27;s inbox: one place, and only the assigned RM replies." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">06 · RM Portal</p><h2>Only the assigned RM replies, all on record</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The client side only works if messages can't sit unseen, so I designed the RM's side too.</li><li>Replies could come from a shared team inbox where any RM answers, or only from the client's assigned RM.</li><li>Only the client's assigned RM replies, because in the first phase each client's relationship is with one RM, not a team.</li><li>One inbox with unread counts, filters by topic and status, and search.</li></ol></div><div class="fg"><figure><img src="figs-v5/keylys/ky-pd-6-rm-portal.webp" data-full="figs-v5/keylys/ky-pd-6-rm-portal@full.webp" alt="The RM&#x27;s inbox: one place, and only the assigned RM replies." loading="lazy"></figure></div></div></div></section><section id="scope"><div class="hd"><p class="sn">07 · Scope</p><h2>Phase one connects one bank, so every total shows how current it is</h2></div><div class="full"><p><strong>The first phase connects one bank, where most of the firm's clients hold their assets, and its data updates once a day.</strong> A client with assets at other banks won't see their full total until those banks are added in the next phase.</p>
+<p>The app is in testing with the firm. In testing I would measure:</p>
+<ul>
+<li>Whether a client clears their to-dos within 30 seconds of opening.</li>
+<li>Whether they can say "as of when" for any number without help.</li>
+<li>What share of client messages arrive in the app instead of by email or chat.</li>
+</ul></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">07 · Scope</p><h2>Phase one connects one bank, so every total shows how current it is</h2></div></div><div class="tr2 one"><div class="tx"><ol class="pts"><li>The first phase connects one bank, where most clients hold their assets, with data once a day.</li><li>The app is in testing with the firm.</li></ol></div></div></div></section></article>
+<a class="next" href="orange-dynasty.html"><span class="eb">Next case study</span><p class="t">Orange Dynasty</p></a>
+<a class="all" href="index.html">← All case studies</a>
+</main><script>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}if(!location.hash){window.scrollTo(0,0);addEventListener('pageshow',function(){window.scrollTo(0,0)})}})();</script><script>(function(){var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Full image');
+lb.innerHTML='<button class="x" type="button" aria-label="Close">×</button><div class="stage"><img alt=""></div><p class="hint">Click the image to see it at full size · Esc to close</p>';document.body.appendChild(lb);
+var im=lb.querySelector('img'),x=lb.querySelector('.x'),last=null;
+function open(t){last=t;im.src=t.dataset.full||t.src;im.alt=t.alt||'';lb.classList.remove('zoom');lb.classList.add('on');document.documentElement.style.overflow='hidden';x.focus();}
+function close(){lb.classList.remove('on','zoom');document.documentElement.style.overflow='';if(last)last.focus&&last.focus();}
+document.querySelectorAll('figure img, .cover img').forEach(function(t){t.tabIndex=0;t.addEventListener('click',function(){open(t)});t.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();open(t)}})});
+im.addEventListener('click',function(e){e.stopPropagation();lb.classList.toggle('zoom');});
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('stage'))close()});x.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});})();</script><script>(function(){var d=document.querySelector('.pick');if(!d)return;document.addEventListener('click',function(ev){if(d.open&&!d.contains(ev.target))d.open=false});document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});})();</script><script>(function(){var b=[].slice.call(document.querySelectorAll('[data-mode]'));
+function set(m){document.body.classList.toggle('tldr',m==='tldr');b.forEach(function(x){x.classList.toggle('on',x.dataset.mode===m);x.setAttribute('aria-pressed',x.dataset.mode===m)});try{localStorage.setItem('case-mode',m)}catch(e){}}
+b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.mode)})});set('detail');})();</script><script>(function(){var l=[].slice.call(document.querySelectorAll('.toc2 a'));if(!l.length||!('IntersectionObserver' in window))return;
+var m={};l.forEach(function(a){m[a.getAttribute('href').slice(1)]=a});
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){l.forEach(function(a){a.removeAttribute('aria-current')});var a=m[e.target.id];if(a)a.setAttribute('aria-current','true')}})},{rootMargin:'-35% 0px -60% 0px'});
+Object.keys(m).forEach(function(id){var s=document.getElementById(id);if(s)o.observe(s)})})();</script></body></html>

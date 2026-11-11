@@ -1,0 +1,190 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EthSign · Cathy Xu</title>
+<meta name="description" content="An e-signature product rebuilt so senders can reach anyone, and keep contracts private">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cathy Xu">
+<meta property="og:title" content="EthSign · Cathy Xu">
+<meta property="og:description" content="An e-signature product rebuilt so senders can reach anyone, and keep contracts private">
+<meta property="og:url" content="https://cathyxu.design/ethsign.html">
+<meta property="og:image" content="https://cathyxu.design/og/ethsign.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cathyxu.design/og/ethsign.jpg">
+<link rel="canonical" href="https://cathyxu.design/ethsign.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0A0A0B;--fg:rgba(255,255,255,.84);--fg2:rgba(255,255,255,.66);--fg3:rgba(255,255,255,.46);--hair:rgba(255,255,255,.12);--ink:#fff;--tile:#141518}
+*{box-sizing:border-box}html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto;object-fit:contain}
+.top{position:sticky;top:0;z-index:10;background:rgba(10,10,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+.top .in{max-width:1520px;margin:0 auto;padding:0 max(24px,env(safe-area-inset-left,0px));height:60px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--fg3)}
+.top a:hover{color:var(--ink)}.top b{color:var(--ink);font-weight:500}
+.top .in{justify-content:space-between}
+.crumb{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap;color:var(--fg3)}.crumb .sep{color:var(--fg3)}
+.pick{position:relative;min-width:0}
+.pick summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;color:#fff;font-weight:500;padding:6px 10px;margin:-6px -10px;border-radius:8px}
+.pick summary::-webkit-details-marker{display:none}.pick summary:hover,.pick[open] summary{background:rgba(255,255,255,.08)}
+.pick summary:focus-visible{outline:2px solid #fff;outline-offset:2px}.pick summary .pt{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pick summary i{flex:none;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.pick[open] summary i{transform:translateY(1px) rotate(225deg)}
+.pick ul{position:absolute;left:-10px;top:calc(100% + 10px);min-width:240px;list-style:none;margin:0;padding:6px;background:#17181C;border:1px solid var(--hair);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.5);z-index:20}
+.pick li a{display:block;padding:9px 12px;border-radius:8px;color:var(--fg);font-size:14px}.pick li a:hover{background:rgba(255,255,255,.07);color:#fff}
+.pick li a[aria-current]{color:#fff;font-weight:500}.pick li a[aria-current]::after{content:"✓";float:right;color:var(--fg3)}
+.toggle{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:2px;gap:2px;flex:none}
+.toggle button{font:inherit;font-size:12.5px;font-weight:500;border:0;background:none;color:var(--fg3);padding:6px 13px;border-radius:999px;cursor:pointer}
+.toggle button.on{background:#fff;color:#0A0A0B}.toggle button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.metar{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;margin:0 0 72px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.metar div{padding:18px 20px 18px 0}.metar div+div{padding-left:20px;border-left:1px solid var(--hair)}
+.metar dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 6px}.metar dd{margin:0;color:var(--fg);font-size:15px;line-height:1.45}
+@media (max-width:760px){.metar{grid-auto-flow:row;grid-template-columns:1fr 1fr}.metar div:nth-child(3){padding-left:0;border-left:0}.metar div:nth-child(n+3){border-top:1px solid var(--hair)}}
+body.tldr article li.k{list-style:disc}
+.tl{display:none}.tldr-only{display:none}
+body.tldr .tldr-only{display:block}body.tldr .full{display:none}body.tldr .tl{display:block}
+.ins{margin:-40px 0 64px;padding:0}
+.ins div{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:32px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.ins dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.ins dd{margin:0;color:var(--ink);font-size:17px;line-height:1.5;max-width:none}.ins ul{margin:0;padding-left:18px}.ins li{margin:2px 0}
+body.tldr article section{padding:44px 0}
+body.tldr article h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:18px}
+
+body.tldr article .hd{display:none}
+.tr2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:64px;align-items:start}
+.tr2.hdonly{grid-template-columns:1fr;margin-bottom:8px}.tr2.one{grid-template-columns:minmax(0,1fr);max-width:none}
+.tr2 h2{margin:0 0 20px}.tr2 .sn{margin-bottom:12px}
+.pts{list-style:none;counter-reset:p;margin:0;padding:0;max-width:none}
+.pts li{counter-increment:p;position:relative;padding:0 0 0 34px;margin:0 0 14px;font-size:16px;line-height:1.55;color:var(--fg)}
+.pts li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:2px;font-size:11px;letter-spacing:.06em;color:var(--fg3);font-variant-numeric:tabular-nums}
+.tr2>.fg>.pts{padding-top:6px}
+.tr2.dec{padding:40px 0 8px}.tr2.dec+.tr2.dec{border-top:1px solid var(--hair);margin-top:32px}
+.tr2 .dn{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 10px}
+.tr2 h3{margin:0 0 20px;font-size:21px;line-height:1.3}
+.wc{margin:0}.wc div{margin:0 0 16px}.wc dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:0 0 4px}
+.wc dd{margin:0;font-size:15.5px;line-height:1.55;color:var(--fg)}
+.tr2 figure{margin:0}.tr2 figcaption{font-size:13px}
+.tl .tlt{margin-top:24px}
+@media (max-width:860px){.tr2{grid-template-columns:1fr;row-gap:24px}}
+@media (max-width:860px){.ins div{grid-template-columns:1fr;row-gap:6px}}
+
+main{max-width:1448px;margin:0 auto;padding:0 24px 120px}
+.hero{padding:72px 0 36px}
+.eb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 20px}
+h1{font-size:clamp(32px,4vw,54px);line-height:1.1;letter-spacing:-.03em;font-weight:600;color:var(--ink);margin:0 0 20px;max-width:21em;text-wrap:balance}
+.thesis{font-size:clamp(19px,1.9vw,24px);line-height:1.4;color:var(--fg2);margin:0;max-width:none}
+.cover{margin:16px 0 56px}.cover img{width:100%;border-radius:14px}
+article{max-width:none}
+/* one column; two widths: reading text 720px, wide items (cover, meta, figures, tables) the full column */
+article section{padding:64px 0 24px;border-top:1px solid var(--hair);scroll-margin-top:72px}
+article section:first-child{border-top:0}
+.sn{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 14px}
+article h2{font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--ink);font-weight:600;margin:0 0 24px;max-width:none;text-wrap:balance}
+article h3{font-size:21px;line-height:1.3;color:var(--ink);font-weight:600;margin:40px 0 14px}
+article .full>h3:first-child{margin-top:0}
+article p,article ul,article ol{max-width:none;margin:0 0 16px}article li{margin:6px 0}
+strong{color:var(--ink);font-weight:600}
+article a{text-decoration:underline;text-decoration-color:var(--fg3);text-underline-offset:3px}article a:hover{color:var(--ink)}
+figure{margin:36px 0 40px}figure img{width:100%;border-radius:12px;background:var(--tile)}
+figcaption{font-size:14px;line-height:1.5;color:var(--fg3);margin-top:12px;max-width:none}
+.ph{aspect-ratio:16/9;border:1px dashed var(--hair);border-radius:12px;display:grid;place-items:center;color:var(--fg3);font-size:14px;padding:24px;text-align:center}
+.tw{overflow-x:auto;margin:8px 0 24px;max-width:none}
+article .tw{background:var(--tile);border:1px solid var(--hair);border-radius:16px;padding:4px 0;overflow:hidden}
+table{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.5}
+th,td{text-align:left;padding:16px 24px;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+thead th{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);padding-top:18px;padding-bottom:14px}
+td:first-child{color:var(--fg3);font-size:14px;width:24%}
+td:nth-child(2){color:var(--fg2)}
+th:nth-child(3),td:nth-child(3){background:rgba(255,255,255,.045);color:var(--ink)}
+td:nth-child(3){font-weight:500}
+thead th:nth-child(3){color:var(--ink)}
+@media (max-width:640px){th,td{padding:12px 14px}td:first-child{width:auto}}
+@media (max-width:640px){article .tw thead{display:none}
+article .tw table,article .tw tbody,article .tw tr,article .tw td{display:block;width:auto}
+article .tw tr{padding:16px 18px;border-bottom:1px solid var(--hair)}article .tw tbody tr:last-child{border-bottom:0}
+article .tw td{border:0;padding:0;background:none}
+article .tw td:first-child{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px}
+article .tw td:nth-child(n+2){display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:3px 0}
+article .tw td:nth-child(n+2)::before{content:attr(data-h);color:var(--fg3);font-size:12.5px;font-weight:400;line-height:1.6}}
+mark.tbd{background:rgba(255,196,0,.14);color:#FFD566;border-radius:4px;padding:1px 5px;font-size:.88em}
+.next{display:block;margin-top:72px;padding:32px;border:1px solid var(--hair);border-radius:14px;max-width:none}
+.next:hover{border-color:var(--fg3)}.next .t{font-size:24px;color:var(--ink);font-weight:600;margin:6px 0 0}
+.all{display:inline-block;margin-top:24px;color:var(--fg3)}.all:hover{color:var(--ink)}
+.toc2{position:fixed;top:112px;width:168px;z-index:5;font-size:13px;line-height:1.35}
+.toc2 .h{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin:0 0 12px 16px}
+.toc2 ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--hair)}
+.toc2 a{display:grid;grid-template-columns:24px 1fr;gap:4px;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--fg3);transition:color .15s}
+.toc2 a:hover{color:var(--fg)}.toc2 a[aria-current="true"]{color:var(--ink);border-left-color:var(--ink)}
+.toc2 .n{font-size:11px;font-variant-numeric:tabular-nums;padding-top:1px;opacity:.8}
+.toc2{left:max(24px,calc((100vw - 1520px)/2 + 24px))}
+@media (min-width:1280px){main{max-width:1520px;padding-left:288px}}
+@media (max-width:1279px){.toc2{display:none}}
+figure img,.cover img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,6,7,.94);display:none;overflow:auto;overscroll-behavior:contain}
+.lb.on{display:block}.lb .stage{min-height:100%;display:flex;align-items:center;justify-content:center;padding:56px 24px}
+.lb img{max-width:100%;max-height:calc(100vh - 112px);width:auto;height:auto;object-fit:contain;border-radius:8px;cursor:zoom-in}
+.lb.zoom .stage{display:block;padding:56px 24px}.lb.zoom img{max-width:none;max-height:none;cursor:zoom-out;margin:0 auto;display:block}
+.lb .x{position:fixed;top:14px;right:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);background:rgba(20,21,24,.9);color:#fff;font:400 22px/1 Inter,sans-serif;cursor:pointer;z-index:2}
+.lb .x:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lb .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--fg3)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:560px){.crumb>a,.crumb>.sep{display:none}.pick summary .pt{max-width:calc(100vw - 200px)}.top .in{gap:12px}
+body{font-size:16px}.hero{padding-top:48px}article section{padding-top:48px}}
+
+/* v6: readable measure; TL;DR mode shows only the kept sections */
+article .full>p,article .full>ul,article .full>ol,article .full>h3,article .full>blockquote{max-width:none}
+article .full>.tw{max-width:none}
+
+</style></head><body>
+<header class="top"><div class="in"><nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Cathy Xu</a><span class="sep">/</span><details class="pick"><summary><span class="pt">EthSign</span><i aria-hidden="true"></i></summary><ul><li><a href="digital-id.html">National Digital ID</a></li><li><a href="registry.html">Property Registry</a></li><li><a href="sign-ai.html">Sign AI</a></li><li><a href="keylys.html">Keylys</a></li><li><a href="orange-dynasty.html">Orange Dynasty</a></li><li><a href="ethsign.html" aria-current="page">EthSign</a></li></ul></details></nav><div class="toggle" role="group" aria-label="Reading mode"><button type="button" data-mode="detail">Detailed</button><button type="button" data-mode="tldr">TL;DR</button></div></div></header>
+<nav class="toc2" aria-label="On this page"><p class="h">On this page</p><ol><li><a href="#top"><span class="n">01</span><span>Overview</span></a></li><li><a href="#pain"><span class="n">02</span><span>Pain</span></a></li><li><a href="#sending"><span class="n">03</span><span>Sending</span></a></li><li><a href="#usability-test"><span class="n">04</span><span>Usability test</span></a></li><li><a href="#encryption"><span class="n">05</span><span>Encryption</span></a></li><li><a href="#before-and-after"><span class="n">06</span><span>Before and after</span></a></li><li><a href="#guardrails"><span class="n">07</span><span>Guardrails</span></a></li><li><a href="#after-launch"><span class="n">08</span><span>After launch</span></a></li></ol></nav><main>
+<div class="hero" id="top"><p class="eb">Case 06 · E-signature product</p>
+<h1>An e-signature product rebuilt so senders can reach anyone, and keep contracts private</h1></div>
+<div class="cover"><img src="figs-v5/ethsign/cover-v6.webp" data-full="figs-v5/ethsign/cover-v6@full.webp" alt="A blockchain e‑signature app where anyone can sign by link, no wallet needed"></div>
+<dl class="metar"><div><dt>Role</dt><dd>Product Designer</dd></div><div><dt>Team</dt><dd>1 PM, 2 engineers</dd></div><div><dt>Timeline</dt><dd>June 2022 to October 2023</dd></div><div><dt>Status</dt><dd>Live</dd></div></dl><dl class="ins tldr-only"><div><dt>In one line</dt><dd>Senders couldn't reach signers without a wallet address, and people forgot the password on each contract. Signatures Next let them send to anyone and open every contract with one master password.</dd></div><div><dt>Problem</dt><dd>A wallet address for every signer, a role for every person, a password for every contract.</dd></div><div><dt>What I did</dt><dd><ul><li>Choose how to send first: one shared contract, a copy each, or a signing link.</li><li>Invite by email, Telegram or wallet, with no role per person, after a usability test.</li><li>A Password Manager in place of a password per contract.</li></ul></dd></div><div><dt>Result</dt><dd>Ten months after launch, Sign reported 1 million users; the counts mix agreements and campaign sign-ups.</dd></div></dl>
+<article class="keep"><section id="pain"><div class="hd"><p class="sn">02 · Pain</p><h2>Every signer had to bring something crypto</h2></div><div class="full"><p>Senders told us:
+"It's hard to remember my signer's wallet address."
+"My investor is not web3 native, and does not know how to sign with wallet address."
+"I want to send my contract to 500 DAO members. Can I do it on EthSign?"</p>
+<p>Senders were founders, teams and DAOs (online communities that vote together); their signers were often new to crypto. Version 4.1, which I redesigned in 2022, was a step-by-step flow built for one-to-one signing.</p>
+<p>Encryption had the same problem. By April 2023, 103,297 contracts were protected by a password and only 6,379 by 1-Tap encryption, which opens a contract with a key each signer sets up in advance. More than 20 people reported forgetting a contract password.</p>
+<p><strong>Reach and security broke at the same step: the moment a signer had to bring something crypto.</strong> A wallet address, a password, a key enabled in advance. Signatures Next, the 2023 rebuild, moves each of those asks to the sender.</p>
+<figure><img src="figs-v5/ethsign/es-pd-1-research-evidence.webp" data-full="figs-v5/ethsign/es-pd-1-research-evidence@full.webp" alt="103,297 contracts used a password; 6,379 used 1-Tap." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">02 · Pain</p><h2>Every signer had to bring something crypto</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>"It's hard to remember my signer's wallet address."</li><li>"My investor is not web3 native, and does not know how to sign with wallet address."</li><li>Senders were founders, teams and DAOs (online communities that vote together); their signers were often new to crypto.</li><li>Reach and security broke at the same step: the moment a signer had to bring something crypto.</li></ol></div><div class="fg"><figure><img src="figs-v5/ethsign/es-pd-1-research-evidence.webp" data-full="figs-v5/ethsign/es-pd-1-research-evidence@full.webp" alt="103,297 contracts used a password; 6,379 used 1-Tap." loading="lazy"></figure></div></div></div></section><section id="sending"><div class="hd"><p class="sn">03 · Sending</p><h2>Choose how to send before who signs</h2></div><div class="full"><p>Senders could get one recipient list with settings for each person covering every case, or pick the kind of sending first. The three kinds follow different rules, and mixing them in one list made it hard to read, so the sender now picks the kind first.</p>
+<p><strong>The sender now picks one of three before adding anyone:</strong></p>
+<ul>
+<li>One shared contract: the sender adds each signer, and everyone signs the same document.</li>
+<li>A copy each (Bulk Send): the sender adds each signer, and every signer gets their own contract.</li>
+<li>A signing link: the sender adds no one. Anyone with the link can sign, on one shared contract or on their own copy.</li>
+</ul>
+<p>It costs one more decision at the very first step.</p>
+<figure><img src="figs-v5/ethsign/es-pd-3-three-ways-to-send.webp" data-full="figs-v5/ethsign/es-pd-3-three-ways-to-send@full.webp" alt="Three ways to send. A link&#x27;s share message carries the link and the contract password together, so anyone it reaches can open the contract: part of what links trade for reach." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">03 · Sending</p><h2>Choose how to send before who signs</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>The sender now picks one of three before adding anyone:</li><li>One shared contract: the sender adds each signer, and everyone signs the same document.</li><li>A copy each (Bulk Send): the sender adds each signer, and every signer gets their own contract.</li><li>A signing link: the sender adds no one, and anyone with the link can sign.</li></ol></div><div class="fg"><figure><img src="figs-v5/ethsign/es-pd-3-three-ways-to-send.webp" data-full="figs-v5/ethsign/es-pd-3-three-ways-to-send@full.webp" alt="Three ways to send. A link&#x27;s share message carries the link and the contract password together, so anyone it reaches can open the contract: part of what links trade for reach." loading="lazy"></figure></div></div></div></section><section id="usability-test"><div class="hd"><p class="sn">04 · Usability test</p><h2>A test removed the wallet address and role</h2></div><div class="full"><p>In September 2023 we tested the prototype with senders and signers. Two asks in the invite step got in the way. A wallet address: the other person often didn't want to give one, and the flow stopped there. And a role for each person, set apart from choosing who signs which field.</p>
+<p><strong>After the test, the invite step dropped both asks.</strong></p>
+<ul>
+<li>No wallet address needed. An invite takes an email, a Telegram handle or a wallet.</li>
+<li>No role for each person. Everyone on the contract signs; viewers get a view link. Who signs which field is set in one place, the field editor.</li>
+</ul>
+<p>Senders lost the viewer role inside the contract.</p>
+<figure><img src="figs-v5/ethsign/es-pd-4-roles-and-signing-order.webp" data-full="figs-v5/ethsign/es-pd-4-roles-and-signing-order@full.webp" alt="The test removed the role picker for each person; viewers get a view link." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">04 · Usability test</p><h2>A test removed the wallet address and role</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>In September 2023 we tested the prototype with senders and signers.</li><li>After the test, the invite step dropped both asks.</li><li>Senders lost the viewer role inside the contract.</li></ol></div><div class="fg"><figure><img src="figs-v5/ethsign/es-pd-4-roles-and-signing-order.webp" data-full="figs-v5/ethsign/es-pd-4-roles-and-signing-order@full.webp" alt="The test removed the role picker for each person; viewers get a view link." loading="lazy"></figure></div></div></div></section><section id="encryption"><div class="hd"><p class="sn">05 · Encryption</p><h2>One master password replaced one per contract</h2></div><div class="full"><p>Every contract had its own password, and people couldn&#x27;t keep track of them. 1-Tap was the earlier fix: a key each signer sets up once, so contracts open without a password. But it only worked if every signer had set it up in advance, so in 4.1 the option was usually greyed out, with "All recipients need to enable 1-Tap Encryption." Making it the default would not have changed that.</p>
+<p><strong>I designed a Password Manager to replace the password for each contract.</strong> It creates an encryption key, protected by one master password and the user's wallet, so contracts open without their own passwords. People still keep the master password.</p>
+<figure><img src="figs-v5/ethsign/es-pd-5-encryption-people-keep-using.webp" data-full="figs-v5/ethsign/es-pd-5-encryption-people-keep-using@full.webp" alt="4.1&#x27;s 1-Tap option says why it&#x27;s off; the Password Manager asks for one master password." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">05 · Encryption</p><h2>One master password replaced one per contract</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>Every contract had its own password, and people couldn&#x27;t keep track of them; 1-Tap only worked if every signer set it up in advance.</li><li>I designed a Password Manager to replace the password for each contract.</li></ol></div><div class="fg"><figure><img src="figs-v5/ethsign/es-pd-5-encryption-people-keep-using.webp" data-full="figs-v5/ethsign/es-pd-5-encryption-people-keep-using@full.webp" alt="4.1&#x27;s 1-Tap option says why it&#x27;s off; the Password Manager asks for one master password." loading="lazy"></figure></div></div></div></section><section id="before-and-after" class="tk"><div class="hd"><p class="sn">06 · Before and after</p><h2>Signers are reached by email, Telegram or a link, not a wallet address</h2></div><div class="full"><p><strong>In Signatures Next, a signer can be reached by email, Telegram handle or link.</strong> In 4.1, the sender needed every signer&#x27;s wallet address, and each signer had to keep a password for every contract or set up 1-Tap in advance. Now the sender chooses how to send first, and one master password replaces a password per contract.</p>
+<figure><img src="figs-v5/ethsign/es-pd-2-sending-flow-before-after.webp" data-full="figs-v5/ethsign/es-pd-2-sending-flow-before-after@full.webp" alt="The sending flow in 4.1 and in Signatures Next." loading="lazy"></figure></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">06 · Before and after</p><h2>Signers are reached by email, Telegram or a link, not a wallet address</h2></div></div><div class="tr2"><div class="tx"><ol class="pts"><li>In Signatures Next, a signer can be reached by email, Telegram handle or link.</li></ol></div><div class="fg"><figure><img src="figs-v5/ethsign/es-pd-2-sending-flow-before-after.webp" data-full="figs-v5/ethsign/es-pd-2-sending-flow-before-after@full.webp" alt="The sending flow in 4.1 and in Signatures Next." loading="lazy"></figure></div></div></div></section><section id="guardrails"><div class="hd"><p class="sn">07 · Guardrails</p><h2>The signing link should have shipped with a limit on who can sign</h2></div><div class="full"><p>Anyone with a signing link can sign. That is the point, and the risk. <strong>When I designed the link, I proposed a cap on signers per link and a CAPTCHA; the team cut both to ship on time, and link expiry shipped.</strong> The link did what it was for: senders reached people without collecting addresses. It also carried campaigns, and nothing in the counts told their sign-ups apart from agreements.</p>
+<p>Now I'd ship one minimal guardrail with the link, and agree before launch on what counts as a real signer.</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">07 · Guardrails</p><h2>The signing link should have shipped with a limit on who can sign</h2></div></div><div class="tr2 one"><div class="tx"><ol class="pts"><li>Anyone with a signing link can sign.</li><li>Now I'd ship one minimal guardrail with the link, and agree before launch on what counts as a real signer.</li></ol></div></div></div></section><section id="after-launch" class="tk"><div class="hd"><p class="sn">08 · After launch</p><h2>Sign reported 1 million users ten months after launch</h2></div><div class="full"><p><strong>Ten months after launch, Sign reported that EthSign Next had reached 1 million users</strong> (<a href="https://x.com/Sign/status/1798610799436689504">Sign on X, Jun 6, 2024</a>). Campaigns used links heavily, so those counts mix agreements and sign-ups.</p></div><div class="tl"><div class="tr2 hdonly"><div class="tx"><p class="sn">08 · After launch</p><h2>Sign reported 1 million users ten months after launch</h2></div></div><div class="tr2 one"><div class="tx"><ol class="pts"><li>Ten months after launch, Sign reported that EthSign Next had reached 1 million users.</li><li>Campaigns used links heavily, so those counts mix agreements and sign-ups.</li></ol></div></div></div></section></article>
+<a class="next" href="digital-id.html"><span class="eb">Next case study</span><p class="t">National Digital ID</p></a>
+<a class="all" href="index.html">← All case studies</a>
+</main><script>(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}if(!location.hash){window.scrollTo(0,0);addEventListener('pageshow',function(){window.scrollTo(0,0)})}})();</script><script>(function(){var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Full image');
+lb.innerHTML='<button class="x" type="button" aria-label="Close">×</button><div class="stage"><img alt=""></div><p class="hint">Click the image to see it at full size · Esc to close</p>';document.body.appendChild(lb);
+var im=lb.querySelector('img'),x=lb.querySelector('.x'),last=null;
+function open(t){last=t;im.src=t.dataset.full||t.src;im.alt=t.alt||'';lb.classList.remove('zoom');lb.classList.add('on');document.documentElement.style.overflow='hidden';x.focus();}
+function close(){lb.classList.remove('on','zoom');document.documentElement.style.overflow='';if(last)last.focus&&last.focus();}
+document.querySelectorAll('figure img, .cover img').forEach(function(t){t.tabIndex=0;t.addEventListener('click',function(){open(t)});t.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();open(t)}})});
+im.addEventListener('click',function(e){e.stopPropagation();lb.classList.toggle('zoom');});
+lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('stage'))close()});x.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});})();</script><script>(function(){var d=document.querySelector('.pick');if(!d)return;document.addEventListener('click',function(ev){if(d.open&&!d.contains(ev.target))d.open=false});document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});})();</script><script>(function(){var b=[].slice.call(document.querySelectorAll('[data-mode]'));
+function set(m){document.body.classList.toggle('tldr',m==='tldr');b.forEach(function(x){x.classList.toggle('on',x.dataset.mode===m);x.setAttribute('aria-pressed',x.dataset.mode===m)});try{localStorage.setItem('case-mode',m)}catch(e){}}
+b.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.mode)})});set('detail');})();</script><script>(function(){var l=[].slice.call(document.querySelectorAll('.toc2 a'));if(!l.length||!('IntersectionObserver' in window))return;
+var m={};l.forEach(function(a){m[a.getAttribute('href').slice(1)]=a});
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){l.forEach(function(a){a.removeAttribute('aria-current')});var a=m[e.target.id];if(a)a.setAttribute('aria-current','true')}})},{rootMargin:'-35% 0px -60% 0px'});
+Object.keys(m).forEach(function(id){var s=document.getElementById(id);if(s)o.observe(s)})})();</script></body></html>
